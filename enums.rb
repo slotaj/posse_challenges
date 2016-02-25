@@ -17,8 +17,8 @@ module Enums
       end
       selected
     end
-
-    def reduce(collection, condition)
+    # Pretty sure this should not be reduce
+    def map(collection, condition)
       reduced = []
       collection.each do |item|
         reduced << condition.call(item)
@@ -29,7 +29,7 @@ module Enums
     def reject(collection, condition)
       rejected = []
       collection.each do |item|
-        rejected << item if condition.call(item)
+        rejected << item unless condition.call(item)
       end
       rejected
     end
